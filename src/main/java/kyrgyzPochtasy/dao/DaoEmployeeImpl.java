@@ -30,18 +30,26 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
     @Override
     public List<Employee> getAllEmployee() {
-        List<Employee> employeeList = entityManager.createQuery("SELECT c from Employee c", Employee.class).getResultList();
-        return employeeList;
+        return entityManager.createQuery("SELECT c from Employee c", Employee.class).getResultList();
     }
 
     @Override
     public void update(int id, Employee employee) {
+
         Employee employee1 = getEmployeeById(id);
-        employee1.setFirstName(employee.getFirstName());
-        employee1.setLastName(employee.getLastName());
-        employee1.setAge(employee.getAge());
-        employee1.setDepartment(employee.getDepartment());
-        employee1.setLanguage(employee.getLanguage());
-        entityManager.merge(employee1);
+        if (employee.getFirstName().equals("")) {
+            throw new RuntimeException();
+        } else if (employee.getLastName().equals("")) {
+            throw new RuntimeException();
+        } else if (employee.getAge().equals("")) {
+            throw new RuntimeException();
+        } else {
+            employee1.setFirstName(employee.getFirstName());
+            employee1.setLastName(employee.getLastName());
+            employee1.setAge(employee.getAge());
+            employee1.setDepartment(employee.getDepartment());
+            employee1.setLanguage(employee.getLanguage());
+            entityManager.merge(employee1);
+        }
     }
 }

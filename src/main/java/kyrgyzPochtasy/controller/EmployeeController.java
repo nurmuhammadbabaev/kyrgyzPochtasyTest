@@ -56,16 +56,4 @@ public class EmployeeController {
         employeeService.removeEmployeeById(id);
         return "redirect:/employees";
     }
-
-    @GetMapping("/open")
-    public String openCompany() {
-        return "employee-page";
-    }
-
-//@ModelAttribute("headerMessage")
-//    public String companyMessage(){
-//    return "Welcom to our vebsite!";
-//}
-
-
 }
