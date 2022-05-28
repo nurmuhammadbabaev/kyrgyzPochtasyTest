@@ -12,34 +12,27 @@
 <h2 style="margin-left: 120px; margin-bottom: 10px">Add Employees</h2>
 
 <div class="container mt-5">
-
-
     <form th:method="POST" th:action="@{/employees/save}" th:object="${employee}">
-
         <label for="firstName" class="form-label">First name:</label>
-        <input th:field="*{firstName}" type="text" id="firstName" class="input">
-        <br>
+        <input th:field="*{firstName}" type="text" id="firstName" class="input"><br>
 
         <label for="lastName" class="form-label">Last name:</label>
-        <input th:field="*{lastName}" type="text" id="lastName" class="input">
-        <br>
+        <input th:field="*{lastName}" type="text" id="lastName" class="input"><br>
+
         <label for="age" class="form-label">Age:</label>
-        <input th:field="*{age}" type="text" id="age" class="input">
-        <br>
+        <input th:field="*{age}" type="text" id="age" class="input"><br>
 
         <label for="department" class="form-label">Department:</label>
         <select th:field="*{department}" id="department" type="text" class="select">
             <option th:value="'Department1'" th:text="'Department1'"></option>
-            <option th:value="'Department2'" th:text="'Department2'"></option>
-        </select>
-        <br>
+            <option th:value="'Department2'" th:text="'Department2'"></option></select><br>
+
         <label for="language" class="form-label">Language:</label>
         <select th:field="*{language}" id="language" type="text">
             <option th:value="'Java'" th:text="'Java'"></option>
             <option th:value="'C#'" th:text="'C#'"></option>
-            <option th:value="'PHP'" th:text="'PHP'"></option>
-        </select>
-        <br>
+            <option th:value="'PHP'" th:text="'PHP'"></option></select><br>
+
         <button type="submit" class="btn btn-success">Save</button>
         <button type="reset" class="btn btn-outline-warning">Cancel</button>
     </form>
