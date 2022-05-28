@@ -9,7 +9,7 @@
 
 <body>
 <header th:insert="block/header::header"></header>
-<h2>Add Employees</h2>
+<h2 style="margin-left: 120px; margin-bottom: 10px">Add Employees</h2>
 
 <div class="container mt-5">
 
@@ -28,7 +28,7 @@
         <br>
 
         <label for="department" class="form-label">Department:</label>
-        <select th:field="*{department}" id="department" type="text">
+        <select th:field="*{department}" id="department" type="text" class="select">
             <option th:value="'Department1'" th:text="'Department1'"></option>
             <option th:value="'Department2'" th:text="'Department2'"></option>
         </select>

@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private DaoEmployee daoEmployee;
+    private final DaoEmployee daoEmployee;
 
     @Autowired
     public EmployeeServiceImpl(DaoEmployee daoEmployee) {

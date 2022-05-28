@@ -9,7 +9,7 @@
 </head>
 <body>
 <header th:insert="block/header::header"></header>
-<h2>Update Departments</h2>
+<h2 style="margin-left: 120px; margin-bottom: 10px">Update Departments</h2>
 <div class="container mt-5">
     <form th:method="PATCH" th:action="@{/employees/{id}(id=${employee.id})}" th:object="${employee}">
         <input type="hidden" name = "id" th:field="*{id}">

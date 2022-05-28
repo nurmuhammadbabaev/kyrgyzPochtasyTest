@@ -19,7 +19,7 @@ public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private String age;
+    private int age;
     private String department;
     private String language;
 }

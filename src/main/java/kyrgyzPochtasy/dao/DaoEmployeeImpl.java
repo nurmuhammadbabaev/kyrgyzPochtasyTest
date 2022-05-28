@@ -1,6 +1,7 @@
 package kyrgyzPochtasy.dao;
 
 import kyrgyzPochtasy.entity.Employee;
+import kyrgyzPochtasy.exception.BadRequestException;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,15 @@ public class DaoEmployeeImpl implements DaoEmployee {
 
     @Override
     public void saveEmployee(Employee employee) {
+        if (employee.getFirstName().equals("")) {
+            throw new BadRequestException("FirstName is Null");
+
+        } else if (employee.getLastName().equals("")) {
+            throw new BadRequestException("LastName is Null");
+            
+        } else if (employee.getAge() < 1 || employee.getAge() > 120) {
+            throw new BadRequestException("Age is Null or Employee's age is over 120");
+        }
         entityManager.persist(employee);
     }
 
@@ -37,12 +47,12 @@ public class DaoEmployeeImpl implements DaoEmployee {
     public void update(int id, Employee employee) {
 
         Employee employee1 = getEmployeeById(id);
-        if (employee.getFirstName().equals("")) {
-            throw new RuntimeException();
-        } else if (employee.getLastName().equals("")) {
-            throw new RuntimeException();
-        } else if (employee.getAge().equals("")) {
-            throw new RuntimeException();
+        if (employee.getFirstName().equals(" ")) {
+            throw new BadRequestException("FirstName is Null");
+        } else if (employee.getLastName().equals(" ")) {
+            throw new BadRequestException("LastName is Null");
+        } else if (employee.getAge() < 1 || employee.getAge() > 120) {
+            throw new BadRequestException("Age is Null or Employee's age is over 120");
         } else {
             employee1.setFirstName(employee.getFirstName());
             employee1.setLastName(employee.getLastName());
